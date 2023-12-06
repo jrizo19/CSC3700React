@@ -9,7 +9,7 @@ module.exports = class Sales {
         this.quantity = q;
         this.totalSales = ts;
     }
-    static fetchAll(){
+    static fetchAll() {//WORKING
         return db.execute("SELECT DATE_FORMAT(s.SalesDate, '%Y-%m-%d') as FormattedSalesDate, " +
         "c.CustomerName, i.ItemName as Product, s.Quantity, SUM(i.ItemPrice * s.Quantity) as TotalSales " +
         "FROM customer c JOIN sales s ON c.CustomerID = s.CustomerID JOIN item i ON s.ItemID = i.ItemID " +

@@ -1,18 +1,18 @@
-const Customer = require("../models/customers");
-exports.getCustomer = (request, response) => {
-   Customer.fetchAll().then((results) => {
+const Customers = require("../models/customers");
+exports.getCustomer = (request, response) => { //WORKING
+   Customers.fetchAll().then((results) => {
        response.json(results[0]);
    })
 };
 
-exports.getAddCustomer = (req, res) => {
+exports.getAddCustomer = (req, res) => { //not worked on
     res.render('addCustomer', {
         from: 'customers',
         title: 'Add Customer'
     })
 }
 
-exports.postAddCustomer =(req, res) => {
+exports.postAddCustomer =(req, res) => { //not worked on
     let n = req.body.CustomerName;
     let e = req.body.CustomerEmail;
     const customer = new Customer(n, e);
@@ -21,7 +21,7 @@ exports.postAddCustomer =(req, res) => {
     )
 }
 
-exports.postUpdateCustomer = (req, res) => {
+exports.postUpdateCustomer = (req, res) => { //not worked on
     let id = req.body.CustomerID;
     let n = req.body.CustomerName;
     let e = req.body.CustomerEmail;
@@ -34,7 +34,7 @@ exports.postUpdateCustomer = (req, res) => {
         console.log(err)
     })
 }
-exports.updateCustomer = (req, res) => {
+exports.updateCustomer = (req, res) => { //not worked on
     let id = req.params.id;
     Customer.findById(id)
         .then ((rows) =>{
@@ -50,7 +50,7 @@ exports.updateCustomer = (req, res) => {
     })
 }
 
-exports.getUpdateCustomer = (req, res) => {
+exports.getUpdateCustomer = (req, res) => { //not worked on
     let id = req.params.id;
     Customer.findById(id)
         .then ((rows) =>{
@@ -66,7 +66,7 @@ exports.getUpdateCustomer = (req, res) => {
     })
 }
 
-exports.postCustomer = (req, res) => {
+exports.postCustomer = (req, res) => { //not worked on
     res.render('customers', {
         from: 'customers'
     })

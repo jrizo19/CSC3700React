@@ -8,14 +8,14 @@ module.exports = class Products {
         this.totalSales = ts;
     }
 
-    static fetchAll(){
+    static fetchAll(){ //WORKING
         return db.execute("SELECT i.itemID, i.itemName, IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales " +
         "FROM item i left JOIN sales s ON i.ItemID = s.ItemID " +
         "GROUP BY s.itemID " +
         "ORDER BY TotalSales DESC;")
     }
 
-    saveProduct() {
+    saveProduct() { //not worked on
         return db.execute('insert into item (ItemName, ItemPrice)' +
             'values(?, ?)',
             [this.item, this.price]

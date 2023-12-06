@@ -1,5 +1,5 @@
 const db = require("../util/database");
-module.exports = class Home {
+module.exports = class Home { //WORKING
     static fetchCustomer(){
         return db.execute("SELECT c.customername, SUM(i.itemprice * s.quantity) AS Total_Sales " +
             "FROM customer c JOIN sales s ON c.customerid = s.customerid " +
