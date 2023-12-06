@@ -10,6 +10,10 @@ body {
 .mainNav {
   background-color: #388078;
   padding: 20px;
+  justify-content: space-between;
+}
+.nav-item{
+  display:inline-block;
 }
 .navItem:hover{
   font-weight: bold;
@@ -22,8 +26,9 @@ body {
   color: #F6F6F2;
   font-size: 1.1rem;
 }
-.mainNav > img {
-  height: 70px;
+
+#harryLogo {
+  height: 80px;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
