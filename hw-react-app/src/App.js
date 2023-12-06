@@ -7,6 +7,7 @@ import Products from "./components/Products";
 import Sales from "./components/Sales";
 import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
+import CustomerDetails from "./components/CustomerDetails";
 
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path='/' element={<Home />}></Route>
-          <Route path='customers' element={<Customers />}></Route>
+          <Route path='customers' element={<Customers />}>
+              <Route path=':id' element={<CustomerDetails />}></Route>
+          </Route>
           <Route path='products' element={<Products />}></Route>
           <Route path='sales' element={<Sales />}></Route>
           <Route path='*' element={<NotFound />}></Route>
