@@ -28,6 +28,7 @@ body {
 }
 
 #harryLogo {
+  margin: -8px;
   height: 80px;
 }
 code {
