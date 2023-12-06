@@ -8,7 +8,7 @@ function HomeCustomers({customers, title}) {
         return <div>No customer data available.</div>;
     }
     if (!Array.isArray(customers)){
-        return <div>customers not an array</div>
+        return <div>Customers not an array</div>
     }
     return (
         <div>
