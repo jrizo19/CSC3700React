@@ -1,8 +1,8 @@
 const Product = require("../models/products");
 
-exports.getProducts = (request, response) => { //WORKING
+exports.getProducts = (req, res) => { //WORKING
     Product.fetchAll().then((results) => {
-            response.json(results[0]);
+            res.json(results[0]);
         })
 }
 //

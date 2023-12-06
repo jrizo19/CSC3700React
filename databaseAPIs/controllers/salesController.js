@@ -1,8 +1,8 @@
 const Sales = require("../models/sales");
 
-exports.getSales = (request, response) => { //WORKING
+exports.getSales = (req, res) => { //WORKING
     Sales.fetchAll().then((results) => {
-        response.json(results[0]);
+        res.json(results[0]);
     });
 };
 //

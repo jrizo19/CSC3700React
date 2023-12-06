@@ -6,10 +6,10 @@ import {Button} from "react-bootstrap";
 
 function CustomerDetails(props) {
     const {id} = useParams();
-    let url = `http://localhost:8000/books/${id}`;
-    const {data : book, error, isPending} = useFetch(url)
+    let url = `http://localhost:1000/customers/${id}`;
+    const {data : customer, error, isPending} = useFetch(url)
     const handleClick = () => {
-        let URL = `http://localhost:8000/books/${book.id}`;
+        let URL = `http://localhost:1000/customers/${customer.id}`;
         fetch(URL , {
             method: 'DELETE',
         }).then(() => {
@@ -26,9 +26,9 @@ function CustomerDetails(props) {
         <div>
             { isPending  && <div> Loading </div>}
             { error  && <div> {error} </div>}
-            { book  && (
+            { customer  && (
                 <div>
-                    <h2> Book Details for id={book.id} </h2>
+                    <h2> Customer Details for id={customer.CustomerID} </h2>
 
                     <Table striped bordered hover>
                         <thead>
@@ -36,17 +36,17 @@ function CustomerDetails(props) {
                             <th> Title</th>
                             <th> Author</th>
                             <th> Price</th>
-                            <th> Description</th>
+                            <th> Update</th>
+                            <th> Delete</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr key={book.id}>
-                            <td> {book.title}</td>
-                            <td> {book.author}</td>
-                            <td> {book.price}</td>
-                            <td> {book.description}</td>
-                            <td> <Button onClick={handleClick}> Delete {book.id}  </Button></td>
-                            <td> <Button onClick={handleClickUpdate}> Update {book.id}  </Button></td>
+                        <tr key={customer.CustomerID}>
+                            <td> {customer.CustomerName}</td>
+                            <td> {customer.CustomerEmail}</td>
+                            <td> {customer.TotalSales}</td>
+                            <td> <Button onClick={handleClickUpdate}> Update {customer.CustomerID}  </Button></td>
+                            <td> <Button onClick={handleClick}> Delete {customer.CustomerID}  </Button></td>
                         </tr>
                         </tbody>
                     </Table>

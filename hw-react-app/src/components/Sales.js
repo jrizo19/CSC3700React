@@ -1,10 +1,20 @@
 import React from 'react';
+import useFetch from "./useFetch";
+import {Col, Row} from "react-bootstrap";
+import SalesList from "./SalesList";
 
-function Sales(props) {
+function Sales() {
+    let url = " http://localhost:1000/sales";
+    const {data : sales, isPending, error} = useFetch(url)
+    console.log(sales);
     return (
-        <div>
-            <h2>Sales</h2>
-        </div>
+        <Row>
+            <Col className={"justify-content-center"} sm={10}>
+                {error && <div> Error: {error} </div>}
+                {isPending && <div> Loading ...</div>}
+                {sales && <SalesList sales={sales}/>}
+            </Col>
+        </Row>
     );
 }
 

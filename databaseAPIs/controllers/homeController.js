@@ -1,6 +1,6 @@
 const Home = require("../models/home")
 
-exports.getHomeData = async (request, response, next) => { //WORKING
+exports.getHomeData = async (req, res, next) => { //WORKING
     try {
         const customer = await Home.fetchCustomer();
         const product = await Home.fetchProduct();
@@ -11,7 +11,7 @@ exports.getHomeData = async (request, response, next) => { //WORKING
             {sales}
         ];
 
-        response.json(allData);
+        res.json(allData);
     } catch (error) {
         next(error);
     }

@@ -1,7 +1,7 @@
 const Customers = require("../models/customers");
-exports.getCustomer = (request, response) => { //WORKING
+exports.getCustomer = (req, res) => { //WORKING
    Customers.fetchAll().then((results) => {
-       response.json(results[0]);
+       res.json(results[0]);
    })
 };
 

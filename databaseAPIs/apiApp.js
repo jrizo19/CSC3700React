@@ -6,12 +6,13 @@ const http = require("http");
 const cors = require('cors');
 const dataRoutes = require('./routes/dataRoutes')
 
-app.use(bodyParser.urlencoded({extended: false})); // middleware for body
-app.use(express.static( path.join(__dirname, 'public')));
-app.use(dataRoutes.routes)
 app.use(cors({
     origin: '*'
 }));
+app.use(bodyParser.urlencoded({extended: false})); // middleware for body
+app.use(express.static( path.join(__dirname, 'public')));
+app.use(dataRoutes.routes)
+
 
 
 let port = 1000;
