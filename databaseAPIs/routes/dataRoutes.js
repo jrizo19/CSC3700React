@@ -6,7 +6,7 @@ const salesController = require("../controllers/salesController");
 const homeController = require("../controllers/homeController");
 const ingredientsController = require("../controllers/ingredientsController");
 
-// router.get('/customers', customerController.getCustomer);
+router.get('/customers', customerController.getCustomer);
 router.get('/ingredients', ingredientsController.getIngredients);
 // router.get('/updateCustomer/:id', customerController.getUpdateCustomer)
 // router.post('/postUpdateCustomer', customerController.postUpdateCustomer);

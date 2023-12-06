@@ -20,7 +20,7 @@ module.exports = class Customers {
             " left JOIN sales s  ON c.CustomerID = s.CustomerID " +
             " left JOIN item i ON s.ItemID = i.ItemID " +
             "GROUP BY c.CustomerName "+
-            "ORDER BY TotalSales DESC" )
+            "ORDER BY TotalSales DESC");
     }
 
     static findById( id ){
