@@ -6,14 +6,12 @@ const useFetch = (url) => {
     const [isPending, setIsPending] = useState(true);
 
     useEffect(() => {
-        console.log("URL->" + url);
         const abortContr = new AbortController();
         fetch(url, {signal: abortContr.signal})
             .then(resp => {
                 if (!resp.ok) {
                     throw Error("Cannot fetch URL data for resource")
                 }
-                console.log(resp);
                 return resp.json()
             }).then(data => {
             setIsPending(false);
@@ -31,7 +29,6 @@ const useFetch = (url) => {
             }
         })
         return () => {
-            console.log("Clean up");
             // Want to stop the fetch
             abortContr.abort();
 

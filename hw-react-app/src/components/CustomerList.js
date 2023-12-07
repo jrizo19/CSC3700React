@@ -16,6 +16,8 @@ function CustomerList({customers, title, handleDelete}) {
                     <th> Name</th>
                     <th> Email</th>
                     <th> Total Sales</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>

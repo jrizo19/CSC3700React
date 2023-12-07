@@ -6,7 +6,6 @@ import SalesList from "./SalesList";
 function Sales() {
     let url = " http://localhost:1000/sales";
     const {data: sales, isPending, error} = useFetch(url)
-    console.log(sales);
     return (
         <Row className="justify-content-center">
             <Col sm={9}>

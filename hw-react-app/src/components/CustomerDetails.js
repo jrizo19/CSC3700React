@@ -16,7 +16,7 @@ function CustomerDetails(props) {
                 {error && <div> {error} </div>}
                 {customer && (
                     <div>
-                        <h2> Customer Details </h2>
+                        <h2> Current Customer Details </h2>
 
                         <Table striped bordered hover>
                             <thead>

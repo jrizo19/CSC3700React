@@ -6,10 +6,9 @@ import {useNavigate} from "react-router-dom";
 
 function Products() {
     let navigate = useNavigate();
-    let url = " http://localhost:1000/products";
+    let url = "http://localhost:1000/products";
     const {data: products, isPending, error} = useFetch(url);
     const myTitle = "Products Management";
-    console.log(products);
     return (
         <Row className={"justify-content-center"}>
             <Col sm={9}>

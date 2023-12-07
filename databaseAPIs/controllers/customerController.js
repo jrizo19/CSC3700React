@@ -12,14 +12,18 @@ exports.getCustomer = (req, res) => { //WORKING
     })
 }
 
-exports.postAddCustomer =(req, res) => { //not worked on
-    let n = req.body.CustomerName;
-    let e = req.body.CustomerEmail;
-    const customer = new Customer(n, e);
-    customer.save()
-    res.redirect('customers'
-    )
+exports.add = (req, res) => {
+    Customers.add(req.body);
 }
+
+// exports.postAddCustomer =(req, res) => { //not worked on
+//     let n = req.body.CustomerName;
+//     let e = req.body.CustomerEmail;
+//     const customer = new Customer(n, e);
+//     customer.save()
+//     res.redirect('customers'
+//     )
+// }
 
 exports.postUpdateCustomer = (req, res) => { //not worked on
     let id = req.body.CustomerID;

@@ -1,20 +1,19 @@
-const Product = require("../models/products");
-const {parse} = require("body-parser/lib/types/json");
+const Products = require("../models/products");
 
 exports.getAll = (req, res) => { //WORKING
-    Product.fetchAll().then((results) => {
+    Products.fetchAll().then((results) => {
         res.json(results[0]);
     });
 }
 
 exports.getProduct = (req, res) => { //WORKING
-    Product.fetchProduct(req.params.id).then((results) => {
+    Products.fetchProduct(req.params.id).then((results) => {
         res.json(results[0]);
     })
 }
 
 exports.add = (req, res) => { //TINKERED WITH
-    Product.add(JSON.parse(req.body));
+    Products.add(req.body);
 };
 
 

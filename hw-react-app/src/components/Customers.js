@@ -6,10 +6,9 @@ import {Outlet, useNavigate} from "react-router-dom";
 
 function Customers() {
     let navigate = useNavigate();
-    let url = " http://localhost:1000/customers";
+    let url = "http://localhost:1000/customers";
     const {data: customers, isPending, error} = useFetch(url);
     const myTitle = "Customers Management";
-    console.log(customers);
     return (
         <div>
             <Row className={"justify-content-center"}>

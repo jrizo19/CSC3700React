@@ -15,6 +15,8 @@ function ProductList({products, title, handleDelete}) {
                 <tr>
                     <th>Product</th>
                     <th>Total Sales</th>
+                    <th></th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
