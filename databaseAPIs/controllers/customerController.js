@@ -7,7 +7,7 @@ exports.getAll = (req, res) => { //WORKING
 };
 
 exports.getCustomer = (req, res) => { //WORKING
-    Customers.fetchCustomer(req.params).then((results) => {
+    Customers.fetchCustomer(req.params.id).then((results) => {
         res.json(results[0]);
     })
 }

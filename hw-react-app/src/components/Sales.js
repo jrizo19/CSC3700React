@@ -5,11 +5,11 @@ import SalesList from "./SalesList";
 
 function Sales() {
     let url = " http://localhost:1000/sales";
-    const {data : sales, isPending, error} = useFetch(url)
+    const {data: sales, isPending, error} = useFetch(url)
     console.log(sales);
     return (
-        <Row>
-            <Col className={"justify-content-center"} sm={10}>
+        <Row className="justify-content-center">
+            <Col sm={9}>
                 {error && <div> Error: {error} </div>}
                 {isPending && <div> Loading ...</div>}
                 {sales && <SalesList sales={sales}/>}

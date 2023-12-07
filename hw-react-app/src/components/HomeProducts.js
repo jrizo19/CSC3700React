@@ -1,8 +1,9 @@
 import React from 'react';
-import {Table} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Button, Table} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
-function HomeProducts ({products, title}) {
+function HomeProducts({products, title}) {
+    let navigate = useNavigate();
     products = products.product[0];
     if (!products || !Array.isArray(products)) {
         return <div>No product data available.</div>;
@@ -27,6 +28,7 @@ function HomeProducts ({products, title}) {
                 )}
                 </tbody>
             </Table>
+            <Button onClick={() => navigate(`/products`)}> Show All </Button>
         </div>
     );
 }

@@ -12,6 +12,7 @@ router.get('/customers/:id', customerController.getCustomer); //WORKING
 router.get('/sales', salesController.getSales); //WORKING
 router.get('/products', productController.getAll); //WORKING
 router.get('/products/:id', productController.getProduct); //WORKING
+router.post('/products', productController.add); //?
 router.get('/home', homeController.getHomeData) //WORKING *
 
 // router.get('/updateCustomer/:id', customerController.getUpdateCustomer)

@@ -8,12 +8,12 @@ exports.getAll = (req, res) => { //WORKING
 }
 
 exports.getProduct = (req, res) => { //WORKING
-    Product.fetchProduct(req.params).then((results) => {
+    Product.fetchProduct(req.params.id).then((results) => {
         res.json(results[0]);
     })
 }
 
-exports.post = (req, res) => { //TINKERED WITH
+exports.add = (req, res) => { //TINKERED WITH
     Product.add(JSON.parse(req.body));
 };
 

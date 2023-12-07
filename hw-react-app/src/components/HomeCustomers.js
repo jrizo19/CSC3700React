@@ -1,13 +1,14 @@
 import React from 'react';
-import {Table} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Button, Table} from "react-bootstrap";
+import {Link, useNavigate} from "react-router-dom";
 
 function HomeCustomers({customers, title}) {
+    let navigate = useNavigate();
     customers = customers.customer[0];
     if (!customers) {
         return <div>No customer data available.</div>;
     }
-    if (!Array.isArray(customers)){
+    if (!Array.isArray(customers)) {
         return <div>Customers not an array</div>
     }
     return (
@@ -30,6 +31,7 @@ function HomeCustomers({customers, title}) {
                 )}
                 </tbody>
             </Table>
+            <Button onClick={() => navigate(`/customers`)}> Show All </Button>
         </div>
     );
 }

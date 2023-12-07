@@ -1,19 +1,22 @@
 import React from 'react';
 import useFetch from "./useFetch";
-import {Col, Row} from "react-bootstrap";
+import {Button, Col, Row} from "react-bootstrap";
 import ProductList from "./ProductList";
+import {useNavigate} from "react-router-dom";
 
 function Products() {
+    let navigate = useNavigate();
     let url = " http://localhost:1000/products";
-    const {data : products, isPending, error} = useFetch(url);
-    const myTitle = "Products Management";3
+    const {data: products, isPending, error} = useFetch(url);
+    const myTitle = "Products Management";
     console.log(products);
     return (
-        <Row>
-            <Col className={"justify-content-center"} sm={10}>
+        <Row className={"justify-content-center"}>
+            <Col sm={9}>
                 {error && <div> Error: {error} </div>}
                 {isPending && <div> Loading ...</div>}
                 {products && <ProductList products={products} title={myTitle}/>}
+                <Button onClick={() => navigate(`/products/add`)}> Insert New Product </Button>
             </Col>
         </Row>
     );

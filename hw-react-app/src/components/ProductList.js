@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Table} from "react-bootstrap";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function ProductList({products, title, handleDelete}) {
     let navigate = useNavigate();
@@ -15,8 +15,6 @@ function ProductList({products, title, handleDelete}) {
                 <tr>
                     <th>Product</th>
                     <th>Total Sales</th>
-                    <th>Update</th>
-                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -28,7 +26,9 @@ function ProductList({products, title, handleDelete}) {
                                 <Button onClick={() => navigate(`/products/${product.itemID}/edit`)}> Edit </Button>
                             </td>
                             <td>
-                                <Link to={`/products/${product.itemID}`}> Delete ID:{product.itemID}</Link>
+                                <Button onClick={(e) => {
+                                    if (window.confirm('Are you sure you wish to delete this item?')) console.log("DELETED")
+                                }}> Delete </Button>
                             </td>
                         </tr>
                     )

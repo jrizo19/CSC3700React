@@ -14,16 +14,16 @@ module.exports = class Products {
         return db.execute('SELECT i.itemID, i.itemName, IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales ' +
             'FROM item i left JOIN sales s ON i.ItemID = s.ItemID ' +
             'WHERE i.itemID=?',
-            [id.id]
+            [id]
         );
     };
 
     static add(data) { //not worked on
-        const item = data.item;
-        const price = data.price;
+        console.log(data.item);
+        console.log(data.price);
         return db.execute('insert into item (ItemName, ItemPrice)' +
             'values(?, ?)',
-            [item, price]
+            [data.item, data.price]
         );
     };
 

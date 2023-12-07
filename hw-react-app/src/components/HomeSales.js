@@ -1,7 +1,9 @@
 import React from 'react';
-import {Table} from "react-bootstrap";
+import {Button, Table} from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 function HomeSales({sales, title}) {
+    let navigate = useNavigate();
     sales = sales.sales[0];
     if (!sales || !Array.isArray(sales)) {
         return <div>No sales data available.</div>;
@@ -28,6 +30,7 @@ function HomeSales({sales, title}) {
                 )}
                 </tbody>
             </Table>
+            <Button onClick={() => navigate(`/sales`)}> Show All </Button>
         </div>
     );
 }

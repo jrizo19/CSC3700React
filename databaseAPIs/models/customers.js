@@ -21,7 +21,7 @@ module.exports = class Customers {
 
     static fetchCustomer(id){ //TINKERED WITH
         return db.execute( "select * from customer where CustomerID = ?",
-            [id.id] );
+            [id] );
     };
 
     updateCustomer(id) { // not worked on
