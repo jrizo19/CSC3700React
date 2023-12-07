@@ -1,6 +1,6 @@
 const Home = require("../models/home")
 
-exports.getHomeData = async (req, res, next) => { //WORKING
+exports.getHomeData = async (req, res, next) => {
     try {
         const customer = await Home.fetchCustomer();
         const product = await Home.fetchProduct();

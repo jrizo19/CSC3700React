@@ -7,6 +7,7 @@ function CustomerList({customers, title}) {
     if (!customers || !Array.isArray(customers)) {
         return <div> No customer data available. </div>;
     }
+
     async function handleDelete(id) {
         let url = `http://localhost:1000/customers/${id}`;
         const data = {
@@ -42,6 +43,7 @@ function CustomerList({customers, title}) {
             window.location.reload();
         }, 200);
     }
+
     return (
         <div>
             <h2> {title} </h2>

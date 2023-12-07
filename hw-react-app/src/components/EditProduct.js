@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import {Outlet, useNavigate, useParams} from "react-router-dom";
 import {Row, Col, Form, Button} from "react-bootstrap";
 
-function EditProduct(props) {
+function EditProduct() {
     const {id} = useParams();
     let navigate = useNavigate()
     let url = `http://localhost:1000/products/${id}`;
     const [ItemName, setItemName] = useState("");
     const [ItemPrice, setItemPrice] = useState("");
+
     async function handleSubmit() {
-        if (ItemName === "" || ItemPrice === ""){
+        if (ItemName === "" || ItemPrice === "") {
             alert("No empty fields allowed");
         } else {
             const data = {
@@ -48,6 +49,7 @@ function EditProduct(props) {
             }, 500);
         }
     }
+
     return (
         <Row className={"justify-content-center"}>
             <Col className={"justify-content-center"} sm={9}>
@@ -64,7 +66,7 @@ function EditProduct(props) {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formAuthor">
                         <Form.Label>Price</Form.Label>
-                        <Form.Control type="text" placeholder="e.g. 19.99"
+                        <Form.Control type="text" placeholder="e.g. 9.99"
                                       value={ItemPrice}
                                       required
                                       onChange={(e) => setItemPrice(e.target.value)}

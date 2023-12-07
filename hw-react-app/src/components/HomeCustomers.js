@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Table} from "react-bootstrap";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function HomeCustomers({customers, title}) {
     let navigate = useNavigate();

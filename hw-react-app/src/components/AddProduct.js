@@ -7,8 +7,9 @@ function AddProduct() {
     let url = "http://localhost:1000/products";
     const [ItemName, setItemName] = useState("");
     const [ItemPrice, setItemPrice] = useState("");
+
     async function handleSubmit() {
-        if (ItemName === "" || ItemPrice === ""){
+        if (ItemName === "" || ItemPrice === "") {
             alert("No empty fields allowed");
         } else {
             const data = {
@@ -45,7 +46,6 @@ function AddProduct() {
                 navigate(`/products`);
             }, 500);
         }
-
     }
 
     return (

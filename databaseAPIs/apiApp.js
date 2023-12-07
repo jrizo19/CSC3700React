@@ -9,13 +9,11 @@ const dataRoutes = require('./routes/dataRoutes')
 app.use(cors({
     origin: '*'
 }));
-app.use(bodyParser.urlencoded({extended: false})); // middleware for body
-app.use(express.static( path.join(__dirname, 'public')));
-app.use(dataRoutes.routes)
-
-
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(dataRoutes.routes);
 
 let port = 1000;
 const server = http.createServer(app);
-server.listen( port );
-console.log( `Listening on http://localhost:${port}`);
+server.listen(port);
+console.log(`Listening on http://localhost:${port}`);

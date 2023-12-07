@@ -13,7 +13,6 @@ import EditProduct from "./components/EditProduct";
 import AddCustomer from "./components/AddCustomer";
 import AddProduct from "./components/AddProduct";
 
-
 function App() {
     return (
         <div>

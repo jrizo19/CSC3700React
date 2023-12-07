@@ -10,6 +10,9 @@ function Navbar() {
                 <div>
                     <img id={"harryLogo"} src={logo} alt={"Harry Logo"}/>
                 </div>
+                <div>
+                    <h2 id="pageTitle"> Happy Harry's Hardware</h2>
+                </div>
                 <div id={"allNavs"}>
                     <Nav.Item>
                         <Nav.Link as={NavLink} to='/'><span className="navItem">Home</span></Nav.Link>

@@ -1,10 +1,10 @@
 import React from 'react';
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import useFetch from "./useFetch"
 import {Row, Col, Table} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 
-function CustomerDetails(props) {
+function CustomerDetails() {
     let navigate = useNavigate();
     const {id} = useParams();
     let url = `http://localhost:1000/customers/${id}`;

@@ -4,7 +4,7 @@ import useFetch from "./useFetch"
 import {Row, Col, Table} from "react-bootstrap";
 import {Button} from "react-bootstrap";
 
-function ProductDetails(props) {
+function ProductDetails() {
     let navigate = useNavigate();
     const {id} = useParams();
     let url = `http://localhost:1000/products/${id}`;
@@ -35,7 +35,6 @@ function ProductDetails(props) {
                             </tbody>
                         </Table>
                         <Button onClick={() => navigate(`/products`)}> Back to All Products </Button>
-
                     </div>
                 )}
             </Col>

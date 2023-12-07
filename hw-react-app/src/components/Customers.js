@@ -2,7 +2,7 @@ import React from 'react';
 import useFetch from "./useFetch";
 import {Button, Col, Row} from "react-bootstrap";
 import CustomerList from "./CustomerList";
-import {Outlet, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Customers() {
     let navigate = useNavigate();

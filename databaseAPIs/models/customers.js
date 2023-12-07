@@ -2,7 +2,7 @@ const db = require("../util/database");
 
 module.exports = class Customers {
 
-    static fetchAll() { // WORKING
+    static fetchAll() {
         return db.execute("SELECT c.CustomerID, c.CustomerName, c.CustomerEmail, " +
             "COALESCE(SUM(i.ItemPrice * s.Quantity), 0) AS TotalSales " +
             "FROM customer c " +
@@ -13,18 +13,18 @@ module.exports = class Customers {
         );
     };
 
-    static fetchCustomer(id) { //WORKING
+    static fetchCustomer(id) {
         return db.execute("select * from customer where CustomerID = ?", [id]);
     };
 
-    static add(data) { //WORKING
+    static add(data) {
         return db.execute('insert into customer (CustomerName, CustomerEmail)' +
             'values(?, ?)', [data.CustomerName, data.CustomerEmail]);
     };
 
-    static edit(data) { //WORKING
+    static edit(data) {
         return db.execute('update customer set CustomerName = ?, CustomerEmail = ? where customer.CustomerID = ?',
-        [data.CustomerName, data.CustomerEmail, data.CustomerID]);
+            [data.CustomerName, data.CustomerEmail, data.CustomerID]);
     };
 
     static delete(data) {

@@ -7,8 +7,9 @@ function AddCustomer() {
     let url = "http://localhost:1000/customers";
     const [CustomerName, setCustomerName] = useState("");
     const [CustomerEmail, setCustomerEmail] = useState("");
+
     async function handleSubmit() {
-        if (CustomerName === "" || CustomerEmail === ""){
+        if (CustomerName === "" || CustomerEmail === "") {
             alert("No empty fields allowed");
         } else {
             const data = {
@@ -46,6 +47,7 @@ function AddCustomer() {
             }, 500);
         }
     }
+
     return (
         <Row className={"justify-content-center"}>
             <Col sm={9}>

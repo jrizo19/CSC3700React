@@ -7,6 +7,7 @@ function ProductList({products, title}) {
     if (!products || !Array.isArray(products)) {
         return <div>No product data available.</div>;
     }
+
     async function handleDelete(id) {
         let url = `http://localhost:1000/products/${id}`;
         const data = {

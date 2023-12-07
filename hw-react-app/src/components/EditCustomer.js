@@ -2,14 +2,15 @@ import React, {useState} from 'react';
 import {Outlet, useNavigate, useParams} from "react-router-dom";
 import {Row, Col, Form, Button} from "react-bootstrap";
 
-function EditCustomer(props) {
+function EditCustomer() {
     const {id} = useParams();
     let navigate = useNavigate()
     let url = `http://localhost:1000/customers/${id}`;
     const [CustomerName, setCustomerName] = useState("");
     const [CustomerEmail, setCustomerEmail] = useState("");
+
     async function handleSubmit() {
-        if (CustomerName === "" || CustomerEmail === ""){
+        if (CustomerName === "" || CustomerEmail === "") {
             alert("No empty fields allowed");
         } else {
             const data = {
@@ -48,6 +49,7 @@ function EditCustomer(props) {
             }, 500);
         }
     }
+
     return (
         <Row className={"justify-content-center"}>
             <Col className={"justify-content-center"} sm={9}>
