@@ -22,9 +22,9 @@ function HomeSales({sales, title}) {
                 <tbody>
                 {sales.map((sale) => (
                         <tr key={sale.salesid}>
-                            <td> {sale.Month}</td>
-                            <td> {sale.Year}</td>
-                            <td> {sale.Total_Sales}</td>
+                            <td> {sale.Month} </td>
+                            <td> {sale.Year} </td>
+                            <td> ${sale.Total_Sales} </td>
                         </tr>
                     )
                 )}

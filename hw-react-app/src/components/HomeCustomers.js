@@ -18,14 +18,14 @@ function HomeCustomers({customers, title}) {
                 <thead>
                 <tr>
                     <th>Name</th>
-                    <th>Total Sales</th>
+                    <th>Total Spent</th>
                 </tr>
                 </thead>
                 <tbody>
                 {customers.map((customer) => (
                         <tr key={customer.CustomerID}>
-                            <td> {customer.CustomerName}</td>
-                            <td> {customer.Total_Sales}</td>
+                            <td> {customer.CustomerName} </td>
+                            <td> ${customer.Total_Sales} </td>
                         </tr>
                     )
                 )}

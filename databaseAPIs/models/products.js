@@ -9,9 +9,9 @@ module.exports = class Products {
         );
     };
 
-    static fetchProduct(id){
-        return db.execute('SELECT i.itemID, i.itemName, IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales ' +
-            'FROM item i left JOIN sales s ON i.ItemID = s.ItemID ' +
+    static fetchProduct(id){ //WORKING
+        return db.execute('SELECT i.itemID, i.itemName, i.itemPrice ' +
+            'FROM item i ' +
             'WHERE i.itemID=?',
             [id]
         );
@@ -24,4 +24,12 @@ module.exports = class Products {
         );
     };
 
+    static edit(data) { //WORKING
+        return db.execute('update item set ItemName = ?, ItemPrice = ? where item.ItemID = ?',
+            [data.ItemName, data.ItemPrice, data.ItemID]);
+    };
+
+    static delete(data) { //WORKING
+        return db.execute('DELETE FROM item WHERE ItemID = ?', [data.ItemID]);
+    }
 }

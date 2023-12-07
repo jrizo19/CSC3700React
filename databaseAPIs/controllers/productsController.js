@@ -12,22 +12,14 @@ exports.getProduct = (req, res) => { //WORKING
     })
 }
 
-exports.add = (req, res) => { //TINKERED WITH
+exports.add = (req, res) => { //WORKING
     Products.add(req.body);
 };
 
+exports.edit = (req, res) => { //WORKING
+    Products.edit(req.body);
+}
 
-// exports.getAddProduct = (req, res) => { //not worked on
-//     res.render('addProduct', {
-//         from: 'products',
-//         title: 'Add Product'
-//     })
-// }
-//
-// exports.postAddProduct =(req, res) => { //not worked on
-//     let i = req.body.item;
-//     let p = req.body.price;
-//     const product = new Product(i, p);
-//     product.saveProduct()
-//     res.redirect('products')
-// }
+exports.delete = (req, res) => { //WORKING
+    Products.delete(req.body);
+}

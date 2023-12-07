@@ -9,7 +9,6 @@ function ProductDetails(props) {
     const {id} = useParams();
     let url = `http://localhost:1000/products/${id}`;
     const {data: product, isPending, error} = useFetch(url)
-
     return (
         <Row className={"justify-content-center"}>
             <Col sm={12}>
@@ -31,7 +30,7 @@ function ProductDetails(props) {
                             <tr key={product[0].itemID}>
                                 <td>{product[0].itemID}</td>
                                 <td>{product[0].itemName}</td>
-                                <td>{product[0].TotalSales}</td>
+                                <td>${product[0].itemPrice}</td>
                             </tr>
                             </tbody>
                         </Table>

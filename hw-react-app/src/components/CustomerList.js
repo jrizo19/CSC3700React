@@ -2,10 +2,45 @@ import React from 'react';
 import {Button, Table} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
-function CustomerList({customers, title, handleDelete}) {
+function CustomerList({customers, title}) {
     let navigate = useNavigate();
     if (!customers || !Array.isArray(customers)) {
         return <div> No customer data available. </div>;
+    }
+    async function handleDelete(id) {
+        let url = `http://localhost:1000/customers/${id}`;
+        const data = {
+            'CustomerID': id,
+        }
+        let formBody = [];
+        for (let property in data) {
+            let encodedKey = encodeURIComponent(property);
+            let encodedValue = encodeURIComponent(data[property]);
+            formBody.push(encodedKey + "=" + encodedValue);
+        }
+        formBody = formBody.join("&");
+        const requestOptions = {
+            method: 'DELETE',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: formBody
+        };
+        fetch(url, requestOptions)
+            .then(async response => {
+                const isJson = response.headers.get('content-type')?.includes('application/json');
+                const data = isJson && await response.json();
+                // check for error response
+                if (!response.ok) {
+                    // get error message from body or default to response status
+                    const error = (data && data.message) || response.status;
+                    return Promise.reject(error);
+                }
+            })
+            .catch(error => {
+                console.error('There was an error!', error);
+            });
+        setTimeout(() => {
+            window.location.reload();
+        }, 200);
     }
     return (
         <div>
@@ -15,7 +50,6 @@ function CustomerList({customers, title, handleDelete}) {
                 <tr>
                     <th> Name</th>
                     <th> Email</th>
-                    <th> Total Sales</th>
                     <th></th>
                     <th></th>
                 </tr>
@@ -25,13 +59,12 @@ function CustomerList({customers, title, handleDelete}) {
                         <tr key={customer.CustomerID}>
                             <td> {customer.CustomerName} </td>
                             <td> {customer.CustomerEmail} </td>
-                            <td> {customer.TotalSales} </td>
                             <td>
                                 <Button onClick={() => navigate(`/customers/${customer.CustomerID}/edit`)}> Edit </Button>
                             </td>
                             <td>
                                 <Button onClick={(e) => {
-                                    if (window.confirm('Are you sure you wish to delete this item?')) console.log("DELETED")
+                                    if (window.confirm('Are you sure you wish to delete this item?')) handleDelete(customer.CustomerID)
                                 }}> Delete </Button>
                             </td>
                         </tr>

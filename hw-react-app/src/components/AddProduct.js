@@ -41,7 +41,9 @@ function AddProduct() {
                 .catch(error => {
                     console.error('There was an error!', error);
                 });
-            navigate("/products");
+            setTimeout(() => {
+                navigate(`/products`);
+            }, 500);
         }
 
     }

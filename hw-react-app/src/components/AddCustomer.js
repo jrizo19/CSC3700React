@@ -41,7 +41,9 @@ function AddCustomer() {
                 .catch(error => {
                     console.error('There was an error!', error);
                 });
-            navigate(`/customers`);
+            setTimeout(() => {
+                navigate(`/customers`);
+            }, 500);
         }
     }
     return (

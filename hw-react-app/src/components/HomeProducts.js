@@ -21,8 +21,8 @@ function HomeProducts({products, title}) {
                 <tbody>
                 {products.map((product) => (
                         <tr key={product.itemid}>
-                            <td> {product.itemname}</td>
-                            <td> {product.Total_Sales}</td>
+                            <td> {product.itemname} </td>
+                            <td> ${product.Total_Sales} </td>
                         </tr>
                     )
                 )}

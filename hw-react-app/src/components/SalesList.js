@@ -1,12 +1,13 @@
 import React from 'react';
 import {Table} from "react-bootstrap";
 
-function SalesList({sales}) {
+function SalesList({sales, title}) {
     if (!sales || !Array.isArray(sales)) {
         return <div>No sales data available.</div>;
     }
     return (
         <div>
+            <h2> {title} </h2>
             <Table striped bordered hover>
                 <thead>
                 <tr>
@@ -14,7 +15,7 @@ function SalesList({sales}) {
                     <th>Customer</th>
                     <th>Product</th>
                     <th>Quantity</th>
-                    <th>Total Sales</th>
+                    <th>Order Amount</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -24,7 +25,7 @@ function SalesList({sales}) {
                             <td> {sale.CustomerName}</td>
                             <td> {sale.Product}</td>
                             <td> {sale.Quantity}</td>
-                            <td> {sale.TotalSales}</td>
+                            <td> ${sale.TotalSales}</td>
                         </tr>
                     )
                 )}

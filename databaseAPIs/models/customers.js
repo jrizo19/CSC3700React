@@ -13,17 +13,21 @@ module.exports = class Customers {
         );
     };
 
-    static fetchCustomer(id) { //TINKERED WITH
+    static fetchCustomer(id) { //WORKING
         return db.execute("select * from customer where CustomerID = ?", [id]);
     };
 
-    static add(data) {
+    static add(data) { //WORKING
         return db.execute('insert into customer (CustomerName, CustomerEmail)' +
             'values(?, ?)', [data.CustomerName, data.CustomerEmail]);
     };
 
-    // updateCustomer(id) { // not worked on
-    //     return db.execute('update customer set CustomerName = ?, CustomerEmail = ? where customer.CustomerID = ?',
-    //         [this.name, this.email, id])
-    // };
+    static edit(data) { //WORKING
+        return db.execute('update customer set CustomerName = ?, CustomerEmail = ? where customer.CustomerID = ?',
+        [data.CustomerName, data.CustomerEmail, data.CustomerID]);
+    };
+
+    static delete(data) {
+        return db.execute('DELETE FROM customer WHERE CustomerID = ?', [data.CustomerID]);
+    }
 };
