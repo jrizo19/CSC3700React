@@ -6,7 +6,7 @@ import {Button} from "react-bootstrap";
 
 function CustomerDetails(props) {
     const {id} = useParams();
-    let url = `http://localhost:1000/customers/${id}`;
+    let url = `http://localhost:1000/customers/:${id}`;
     const {data : customer, error, isPending} = useFetch(url)
     const handleClick = () => {
         let URL = `http://localhost:1000/customers/${customer.id}`;

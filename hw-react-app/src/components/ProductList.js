@@ -1,8 +1,9 @@
 import React from 'react';
-import {Table} from "react-bootstrap";
-import {Link} from "react-router-dom";
+import {Button, Table} from "react-bootstrap";
+import {Link, useNavigate} from "react-router-dom";
 
 function ProductList({products, title, handleDelete}) {
+    let navigate = useNavigate();
     if (!products || !Array.isArray(products)) {
         return <div>No product data available.</div>;
     }
@@ -24,10 +25,10 @@ function ProductList({products, title, handleDelete}) {
                             <td> {product.itemName}</td>
                             <td> {product.TotalSales}</td>
                             <td>
-                                <Link to={`/customers/${product.itemID}`}> Update ID:{product.itemID}</Link>
+                                <Button onClick={() => navigate(`/products/${product.itemID}/edit`)}> Edit </Button>
                             </td>
                             <td>
-                                <Link to={`/customers/${product.itemID}`}> Delete ID:{product.itemID}</Link>
+                                <Link to={`/products/${product.itemID}`}> Delete ID:{product.itemID}</Link>
                             </td>
                         </tr>
                     )

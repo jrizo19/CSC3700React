@@ -7,11 +7,12 @@ const homeController = require("../controllers/homeController");
 const ingredientsController = require("../controllers/ingredientsController");
 
 router.get('/ingredients', ingredientsController.getIngredients);//first GET, just a test
-router.get('/customers', customerController.getCustomer); //WORKING
+router.get('/customers', customerController.getAll); //WORKING
+router.get('/customers/:id', customerController.getCustomer); //WORKING
 router.get('/sales', salesController.getSales); //WORKING
-router.get('/products', productController.getProducts); //WORKING
+router.get('/products', productController.getAll); //WORKING
+router.get('/products/:id', productController.getProduct); //WORKING
 router.get('/home', homeController.getHomeData) //WORKING *
-
 
 // router.get('/updateCustomer/:id', customerController.getUpdateCustomer)
 // router.post('/postUpdateCustomer', customerController.postUpdateCustomer);

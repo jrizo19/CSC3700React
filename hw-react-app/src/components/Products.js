@@ -6,7 +6,7 @@ import ProductList from "./ProductList";
 function Products() {
     let url = " http://localhost:1000/products";
     const {data : products, isPending, error} = useFetch(url);
-    const myTitle = "Products Management";
+    const myTitle = "Products Management";3
     console.log(products);
     return (
         <Row>

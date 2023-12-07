@@ -2,23 +2,29 @@ const db = require("../util/database");
 
 module.exports = class Products {
 
-    constructor(i, p, ts) {
-        this.item = i;
-        this.price = p;
-        this.totalSales = ts;
-    }
-
     static fetchAll(){ //WORKING
         return db.execute("SELECT i.itemID, i.itemName, IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales " +
         "FROM item i left JOIN sales s ON i.ItemID = s.ItemID " +
         "GROUP BY s.itemID " +
-        "ORDER BY TotalSales DESC;")
-    }
+        "ORDER BY TotalSales DESC;"
+        );
+    };
 
-    saveProduct() { //not worked on
+    static fetchProduct(id){
+        return db.execute('SELECT i.itemID, i.itemName, IFNULL((SUM(i.ItemPrice * s.Quantity)),0) AS TotalSales ' +
+            'FROM item i left JOIN sales s ON i.ItemID = s.ItemID ' +
+            'WHERE i.itemID=?',
+            [id.id]
+        );
+    };
+
+    static add(data) { //not worked on
+        const item = data.item;
+        const price = data.price;
         return db.execute('insert into item (ItemName, ItemPrice)' +
             'values(?, ?)',
-            [this.item, this.price]
-        )
-    }
+            [item, price]
+        );
+    };
+
 }

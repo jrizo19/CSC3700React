@@ -6,7 +6,7 @@ import HomeProducts from "./HomeProducts";
 import HomeSales from "./HomeSales";
 
 function Home() {
-    let url = " http://localhost:1000/home";
+    let url = "http://localhost:1000/home";
     const {data : home, isPending, error} = useFetch(url);
     const customersTitle = "Top Customers";
     const productsTitle = "Top Products";

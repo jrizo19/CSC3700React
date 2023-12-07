@@ -1,14 +1,14 @@
 const Customers = require("../models/customers");
-exports.getCustomer = (req, res) => { //WORKING
+
+exports.getAll = (req, res) => { //WORKING
    Customers.fetchAll().then((results) => {
        res.json(results[0]);
    })
 };
 
-exports.getAddCustomer = (req, res) => { //not worked on
-    res.render('addCustomer', {
-        from: 'customers',
-        title: 'Add Customer'
+exports.getCustomer = (req, res) => { //WORKING
+    Customers.fetchCustomer(req.params).then((results) => {
+        res.json(results[0]);
     })
 }
 

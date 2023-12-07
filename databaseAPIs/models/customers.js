@@ -2,13 +2,7 @@ const db = require("../util/database");
 
 module.exports = class Customers {
 
-    constructor(n, e, ts) { //not worked on
-        this.name = n;
-        this.email = e;
-        this.totalSales = ts;
-    };
-
-    save() { //not worked on
+    static add() { //not worked on
         return db.execute('insert into customer (CustomerName, CustomerEmail)' +
         'values(?, ?)',
             [this.name, this.email]
@@ -25,9 +19,9 @@ module.exports = class Customers {
             "ORDER BY TotalSales DESC");
     };
 
-    static findById( id ){ //not worked on
+    static fetchCustomer(id){ //TINKERED WITH
         return db.execute( "select * from customer where CustomerID = ?",
-            [id] );
+            [id.id] );
     };
 
     updateCustomer(id) { // not worked on
