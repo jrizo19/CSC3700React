@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Outlet, useNavigate, useParams} from "react-router-dom";
-import {Row, Col, Form, Button} from "react-bootstrap";
+import {Row, Col, Form, Button, Alert} from "react-bootstrap";
 
 function EditCustomer() {
     const {id} = useParams();
@@ -8,10 +8,17 @@ function EditCustomer() {
     let url = `http://localhost:1000/customers/${id}`;
     const [CustomerName, setCustomerName] = useState("");
     const [CustomerEmail, setCustomerEmail] = useState("");
+    const [showAlertName, setShowAlertName] = useState(false);
+    const [showAlertEmail, setShowAlertEmail] = useState(false);
+    const [showAlertBoth, setShowAlertBoth] = useState(false);
 
     async function handleSubmit() {
-        if (CustomerName === "" || CustomerEmail === "") {
-            alert("No empty fields allowed");
+        if (CustomerName === "" && CustomerEmail === "") {
+            setShowAlertBoth(true);
+        } else if (CustomerName === "") {
+            setShowAlertName(true);
+        } else if (CustomerEmail === "") {
+            setShowAlertEmail(true);
         } else {
             const data = {
                 'CustomerName': CustomerName,
@@ -55,6 +62,21 @@ function EditCustomer() {
             <Col className={"justify-content-center"} sm={9}>
                 <Outlet/>
                 <h2> Edit Customer </h2>
+                {showAlertName && (
+                    <Alert variant="warning" onClose={() => setShowAlertName(false)} dismissible>
+                        You must enter a customer name.
+                    </Alert>
+                )}
+                {showAlertEmail && (
+                    <Alert variant="warning" onClose={() => setShowAlertEmail(false)} dismissible>
+                        You must enter a customer email.
+                    </Alert>
+                )}
+                {showAlertBoth && (
+                    <Alert variant="warning" onClose={() => setShowAlertBoth(false)} dismissible>
+                        You must enter a customer name and email.
+                    </Alert>
+                )}
                 <Form>
                     <Form.Group className="mb-3" controlId="formTitle">
                         <Form.Label>Name</Form.Label>

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Outlet, useNavigate, useParams} from "react-router-dom";
-import {Row, Col, Form, Button} from "react-bootstrap";
+import {Row, Col, Form, Button, Alert} from "react-bootstrap";
 
 function EditProduct() {
     const {id} = useParams();
@@ -8,10 +8,17 @@ function EditProduct() {
     let url = `http://localhost:1000/products/${id}`;
     const [ItemName, setItemName] = useState("");
     const [ItemPrice, setItemPrice] = useState("");
+    const [showAlertName, setShowAlertName] = useState(false);
+    const [showAlertPrice, setShowAlertPrice] = useState(false);
+    const [showAlertBoth, setShowAlertBoth] = useState(false);
 
     async function handleSubmit() {
-        if (ItemName === "" || ItemPrice === "") {
-            alert("No empty fields allowed");
+        if (ItemName === "" && ItemPrice === "") {
+            setShowAlertBoth(true);
+        } else if (ItemName === "") {
+            setShowAlertName(true);
+        } else if (ItemPrice === "") {
+            setShowAlertPrice(true);
         } else {
             const data = {
                 'ItemName': ItemName,
@@ -55,6 +62,21 @@ function EditProduct() {
             <Col className={"justify-content-center"} sm={9}>
                 <Outlet/>
                 <h2> Edit Product </h2>
+                {showAlertName && (
+                    <Alert variant="warning" onClose={() => setShowAlertName(false)} dismissible>
+                        You must enter a product name.
+                    </Alert>
+                )}
+                {showAlertPrice && (
+                    <Alert variant="warning" onClose={() => setShowAlertPrice(false)} dismissible>
+                        You must enter a product price.
+                    </Alert>
+                )}
+                {showAlertBoth && (
+                    <Alert variant="warning" onClose={() => setShowAlertBoth(false)} dismissible>
+                        You must enter a product name and price.
+                    </Alert>
+                )}
                 <Form>
                     <Form.Group className="mb-3" controlId="formTitle">
                         <Form.Label>Product Name</Form.Label>

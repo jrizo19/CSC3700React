@@ -1,4 +1,3 @@
-import './App.css';
 import {Route, Routes} from "react-router-dom";
 import Home from "./components/Home";
 import Customers from "./components/Customers";
@@ -12,6 +11,7 @@ import EditCustomer from "./components/EditCustomer";
 import EditProduct from "./components/EditProduct";
 import AddCustomer from "./components/AddCustomer";
 import AddProduct from "./components/AddProduct";
+import './App.css';
 
 function App() {
     return (

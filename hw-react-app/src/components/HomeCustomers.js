@@ -31,7 +31,7 @@ function HomeCustomers({customers, title}) {
                 )}
                 </tbody>
             </Table>
-            <Button onClick={() => navigate(`/customers`)}> Show All </Button>
+            <Button style={{ marginBottom: '15px' }} onClick={() => navigate(`/customers`)}> Show All </Button>
         </div>
     );
 }

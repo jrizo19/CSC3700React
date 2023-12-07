@@ -12,7 +12,7 @@ function Home() {
     const productsTitle = "Top Products";
     const salesTitle = "Sales";
     return (
-        <Row className={"justify-content-center"}>
+        <Row style={{ padding: '20px' }} className={"justify-content-center"}>
             <Col className={"justify-content-center"} sm={4}>
                 {error && <div> Error: {error} </div>}
                 {isPending && <div> Loading ...</div>}

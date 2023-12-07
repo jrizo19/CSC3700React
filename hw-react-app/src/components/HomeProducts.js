@@ -28,7 +28,7 @@ function HomeProducts({products, title}) {
                 )}
                 </tbody>
             </Table>
-            <Button onClick={() => navigate(`/products`)}> Show All </Button>
+            <Button style={{ marginBottom: '15px' }} onClick={() => navigate(`/products`)}> Show All </Button>
         </div>
     );
 }

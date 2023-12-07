@@ -15,7 +15,7 @@ function Products() {
                 {error && <div> Error: {error} </div>}
                 {isPending && <div> Loading ...</div>}
                 {products && <ProductList products={products} title={myTitle}/>}
-                <Button onClick={() => navigate(`/products/add`)}> Insert New Product </Button>
+                <Button style={{ marginBottom: '15px' }} onClick={() => navigate(`/products/add`)}> Insert New Product </Button>
             </Col>
         </Row>
     );

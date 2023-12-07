@@ -16,7 +16,7 @@ function Customers() {
                     {error && <div> Error: {error} </div>}
                     {isPending && <div> Loading ...</div>}
                     {customers && <CustomerList customers={customers} title={myTitle}/>}
-                    <Button onClick={() => navigate(`/customers/add`)}> Insert New Customer </Button>
+                    <Button style={{ marginBottom: '15px' }} onClick={() => navigate(`/customers/add`)}> Insert New Customer </Button>
                 </Col>
             </Row>
         </div>
