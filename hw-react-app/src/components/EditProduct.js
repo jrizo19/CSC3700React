@@ -61,7 +61,7 @@ function EditProduct() {
         <Row className={"justify-content-center"}>
             <Col className={"justify-content-center"} sm={9}>
                 <Outlet/>
-                <h2> Edit Product </h2>
+                <h2 style={{ paddingTop: '50px' }}> Edit Product </h2>
                 {showAlertName && (
                     <Alert variant="warning" onClose={() => setShowAlertName(false)} dismissible>
                         You must enter a product name.

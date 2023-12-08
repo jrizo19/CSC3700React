@@ -19,7 +19,8 @@ function EditCustomer() {
             setShowAlertName(true);
         } else if (CustomerEmail === "") {
             setShowAlertEmail(true);
-        } else {
+        }
+        else {
             const data = {
                 'CustomerName': CustomerName,
                 'CustomerEmail': CustomerEmail,
@@ -61,7 +62,7 @@ function EditCustomer() {
         <Row className={"justify-content-center"}>
             <Col className={"justify-content-center"} sm={9}>
                 <Outlet/>
-                <h2> Edit Customer </h2>
+                <h2 style={{ paddingTop: '50px' }}> Edit Customer </h2>
                 {showAlertName && (
                     <Alert variant="warning" onClose={() => setShowAlertName(false)} dismissible>
                         You must enter a customer name.
