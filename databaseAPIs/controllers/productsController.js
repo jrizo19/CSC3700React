@@ -8,7 +8,7 @@ exports.getAll = (req, res) => {
 
 exports.getProduct = (req, res) => {
     Products.fetchProduct(req.params.id).then((results) => {
-        res.json(results[0]);
+        res.json(results[0][0]);
     })
 }
 

@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 
 function HomeCustomers({customers, title}) {
     let navigate = useNavigate();
-    customers = customers.customer[0];
     if (!customers) {
         return <div>No customer data available.</div>;
     }

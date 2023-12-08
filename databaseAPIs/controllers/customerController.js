@@ -8,7 +8,7 @@ exports.getAll = (req, res) => {
 
 exports.getCustomer = (req, res) => {
     Customers.fetchCustomer(req.params.id).then((results) => {
-        res.json(results[0]);
+        res.json(results[0][0]);
     })
 }
 

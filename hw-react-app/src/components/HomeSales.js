@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 
 function HomeSales({sales, title}) {
     let navigate = useNavigate();
-    sales = sales.sales[0];
     if (!sales || !Array.isArray(sales)) {
         return <div>No sales data available.</div>;
     }

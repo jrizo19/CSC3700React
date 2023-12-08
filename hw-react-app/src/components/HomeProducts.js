@@ -4,7 +4,6 @@ import {useNavigate} from "react-router-dom";
 
 function HomeProducts({products, title}) {
     let navigate = useNavigate();
-    products = products.product[0];
     if (!products || !Array.isArray(products)) {
         return <div>No product data available.</div>;
     }

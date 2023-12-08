@@ -16,17 +16,17 @@ function Home() {
             <Col className={"justify-content-center"} sm={4}>
                 {error && <div> Error: {error} </div>}
                 {isPending && <div> Loading ...</div>}
-                {home && <HomeCustomers customers={home[0]} title={customersTitle}/>}
+                {home && <HomeCustomers customers={home.customers} title={customersTitle}/>}
             </Col>
             <Col className={"justify-content-center"} sm={4}>
                 {error && <div> Error: {error} </div>}
                 {isPending && <div> Loading ...</div>}
-                {home && <HomeProducts products={home[1]} title={productsTitle}/>}
+                {home && <HomeProducts products={home.products} title={productsTitle}/>}
             </Col>
             <Col className={"justify-content-center"} sm={4}>
                 {error && <div> Error: {error} </div>}
                 {isPending && <div> Loading ...</div>}
-                {home && <HomeSales sales={home[2]} title={salesTitle}/>}
+                {home && <HomeSales sales={home.sales} title={salesTitle}/>}
             </Col>
         </Row>
     );

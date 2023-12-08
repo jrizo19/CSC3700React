@@ -27,10 +27,10 @@ function ProductDetails() {
                             </tr>
                             </thead>
                             <tbody>
-                            <tr key={product[0].itemID}>
-                                <td>{product[0].itemID}</td>
-                                <td>{product[0].itemName}</td>
-                                <td>${product[0].itemPrice}</td>
+                            <tr key={product.itemID}>
+                                <td>{product.itemID}</td>
+                                <td>{product.itemName}</td>
+                                <td>${product.itemPrice}</td>
                             </tr>
                             </tbody>
                         </Table>

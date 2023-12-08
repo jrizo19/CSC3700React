@@ -27,10 +27,10 @@ function CustomerDetails() {
                             </tr>
                             </thead>
                             <tbody>
-                            <tr key={customer[0].CustomerID}>
-                                <td> {customer[0].CustomerID} </td>
-                                <td> {customer[0].CustomerName} </td>
-                                <td> {customer[0].CustomerEmail} </td>
+                            <tr key={customer.CustomerID}>
+                                <td> {customer.CustomerID} </td>
+                                <td> {customer.CustomerName} </td>
+                                <td> {customer.CustomerEmail} </td>
                             </tr>
                             </tbody>
                         </Table>
