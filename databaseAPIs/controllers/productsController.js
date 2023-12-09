@@ -13,13 +13,19 @@ exports.getProduct = (req, res) => {
 }
 
 exports.add = (req, res) => {
-    Products.add(req.body);
+    Products.add(req.body).then((results) => {
+        res.status(201).json({'ItemID': results, 'ItemName': req.body.ItemName, 'ItemPrice': req.body.ItemPrice});
+    });
 };
 
 exports.edit = (req, res) => {
-    Products.edit(req.body);
+    Products.edit(req.body).then(() => {
+        res.status(200);
+    });
 }
 
 exports.delete = (req, res) => {
-    Products.delete(req.body);
+    Products.delete(req.params.id).then(() => {
+        res.status(204);
+    });
 }

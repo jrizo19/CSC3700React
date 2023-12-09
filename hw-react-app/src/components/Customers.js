@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom";
 function Customers() {
     let navigate = useNavigate();
     let url = "http://localhost:1000/customers";
-    const {data: customers, isPending, error} = useFetch(url);
+    const {data: customers, isPending, error, fetchData} = useFetch(url);
     const myTitle = "Customers Management";
     return (
         <div>
@@ -15,7 +15,7 @@ function Customers() {
                 <Col sm={9}>
                     {error && <div> Error: {error} </div>}
                     {isPending && <div> Loading ...</div>}
-                    {customers && <CustomerList customers={customers} title={myTitle}/>}
+                    {customers && <CustomerList fetchData={fetchData} customers={customers} title={myTitle}/>}
                     <Button style={{ marginBottom: '15px' }} onClick={() => navigate(`/customers/add`)}> Insert New Customer </Button>
                 </Col>
             </Row>

@@ -13,14 +13,20 @@ exports.getCustomer = (req, res) => {
 }
 
 exports.add = (req, res) => {
-    Customers.add(req.body);
+    Customers.add(req.body).then((results) => {
+       res.status(201).json({'CustomerID': results, 'CustomerName': req.body.CustomerName, 'CustomerEmail': req.body.CustomerEmail});
+    });
 }
 
 exports.edit = (req, res) => {
-    Customers.edit(req.body);
+    Customers.edit(req.body).then(() => {
+        res.status(200);
+    });
 }
 
 exports.delete = (req, res) => {
-    Customers.delete(req.body);
+    Customers.delete(req.params.id).then(() => {
+        res.status(204);
+    });
 }
 

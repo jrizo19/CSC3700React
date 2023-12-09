@@ -19,7 +19,9 @@ module.exports = class Customers {
 
     static add(data) {
         return db.execute('insert into customer (CustomerName, CustomerEmail)' +
-            'values(?, ?)', [data.CustomerName, data.CustomerEmail]);
+            'values(?, ?)', [data.CustomerName, data.CustomerEmail]).then(result => {
+            return result[0].insertId;
+        });
     };
 
     static edit(data) {
@@ -27,7 +29,7 @@ module.exports = class Customers {
             [data.CustomerName, data.CustomerEmail, data.CustomerID]);
     };
 
-    static delete(data) {
-        return db.execute('DELETE FROM customer WHERE CustomerID = ?', [data.CustomerID]);
+    static delete(id) {
+        return db.execute('DELETE FROM customer WHERE CustomerID = ?', [id]);
     }
 };

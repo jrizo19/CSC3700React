@@ -7,7 +7,15 @@ const useFetch = (url) => {
 
     useEffect(() => {
         const abortContr = new AbortController();
-        fetch(url, {signal: abortContr.signal})
+        fetchData(abortContr.signal);
+        return () => {
+            // Want to stop the fetch
+            abortContr.abort();
+
+        }
+    }, [url]); // Whenever URL changes rerun
+    const fetchData = (signal) => {
+        fetch(url, {signal: signal})
             .then(resp => {
                 if (!resp.ok) {
                     throw Error("Cannot fetch URL data for resource")
@@ -27,13 +35,8 @@ const useFetch = (url) => {
                 setIsPending(false);
                 setError(err.message);
             }
-        })
-        return () => {
-            // Want to stop the fetch
-            abortContr.abort();
-
-        }
-    }, [url]); // Whenever URL changes rerun
-    return {data, isPending, error}
+        });
+    }
+    return {data, isPending, error, fetchData}
 }
 export default useFetch;

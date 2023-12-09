@@ -19,9 +19,9 @@ module.exports = class Products {
 
     static add(data) {
         return db.execute('insert into item (ItemName, ItemPrice)' +
-            'values(?, ?)',
-            [data.ItemName, data.ItemPrice]
-        );
+            'values(?, ?)', [data.ItemName, data.ItemPrice]).then(result => {
+            return result[0].insertId;
+        });
     };
 
     static edit(data) {
@@ -29,7 +29,7 @@ module.exports = class Products {
             [data.ItemName, data.ItemPrice, data.ItemID]);
     };
 
-    static delete(data) {
-        return db.execute('DELETE FROM item WHERE ItemID = ?', [data.ItemID]);
+    static delete(id) {
+        return db.execute('DELETE FROM item WHERE ItemID = ?', [id]);
     }
 }

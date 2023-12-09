@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Table} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
-function ProductList({products, title}) {
+function ProductList({products, title, fetchData}) {
     let navigate = useNavigate()
     if (!products || !Array.isArray(products)) {
         return <div>No product data available.</div>;
@@ -10,27 +10,12 @@ function ProductList({products, title}) {
 
     async function handleDelete(id) {
         let url = `http://localhost:1000/products/${id}`;
-        const data = {
-            'ItemID': id,
-        }
-        let formBody = [];
-        for (let property in data) {
-            let encodedKey = encodeURIComponent(property);
-            let encodedValue = encodeURIComponent(data[property]);
-            formBody.push(encodedKey + "=" + encodedValue);
-        }
-        formBody = formBody.join("&");
-        const requestOptions = {
-            method: 'DELETE',
-            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-            body: formBody
-        };
-        fetch(url, requestOptions)
+        fetch(url, {'method': 'DELETE'})
             .then(async response => {
                 const isJson = response.headers.get('content-type')?.includes('application/json');
                 const data = isJson && await response.json();
                 // check for error response
-                if (!response.ok) {
+                if (response.statusCode !== 204) {
                     // get error message from body or default to response status
                     const error = (data && data.message) || response.status;
                     return Promise.reject(error);
@@ -39,9 +24,7 @@ function ProductList({products, title}) {
             .catch(error => {
                 console.error('There was an error!', error);
             });
-        setTimeout(() => {
-            window.location.reload();
-        }, 200);
+        fetchData();
     }
 
     return (
